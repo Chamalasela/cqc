@@ -1,5 +1,5 @@
 #footer {
-    background: #007b5e !important;
+    background: hsl(166, 95%, 23%) !important;
 }
 #footer h5{
 	padding-left: 10px;
@@ -15,7 +15,7 @@
     -webkit-text-decoration-skip: objects;
 }
 #footer ul.social li{
-	padding: 3px 0;
+	padding: 2px 0;
 }
 #footer ul.social li a i {
     margin-right: 5px;
