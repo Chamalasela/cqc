@@ -1,2 +1,2 @@
-# bootstrap-cqc
-Bootstrap static web application for CQC
+# Colombo Quality Camp
+Web application for CQC
