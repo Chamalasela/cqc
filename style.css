@@ -1,3 +1,11 @@
+.navbar-green {
+	background-color: green;
+  }
+  .navbar-green .navbar-brand, 
+  .navbar-green .nav-link {
+	color: white !important; /* Ensure text color contrasts well */
+  }
+  
 #footer {
     background: hsl(166, 95%, 23%) !important;
 }
@@ -59,4 +67,5 @@
     border-left: transparent;
     padding-bottom: 0px;
     margin-bottom: 10px;
+}
 }
