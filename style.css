@@ -1,10 +1,14 @@
 .navbar-green {
-  /*background-color: green;*/
-  background-color: rgb(218, 69, 1);
+  background-color: green;
+  /* background-color: rgb(218, 69, 1); */
 }
 .navbar-green .navbar-brand,
 .navbar-green .nav-link {
   color: white !important; /* Ensure text color contrasts well */
+}
+
+body {
+  font-family: "Roboto", sans-serif;
 }
 
 #footer {
@@ -24,7 +28,8 @@
   -webkit-text-decoration-skip: objects;
 }
 #footer ul.social li {
-  padding: 2px 0;
+  /* padding: 2px 0; */
+  padding: 5px 0;
 }
 #footer ul.social li a i {
   margin-right: 5px;
