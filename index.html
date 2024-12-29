@@ -14,67 +14,51 @@
 </head>
 
 <body>
+  <div class="circle"></div>
   <!-- Navigation -->
 
   <nav class="navbar navbar-expand-lg fixed-top mx-5 my-3">
-      <div class="container-fluid">
-        <div class="d-flex align-items-center gap-1">
-          <img src="./cqcpnglogo.svg" alt="logo" height="40"/>
-          <a class="navbar-brand" href="#">Colombo Quality Camp</a>
-        </div>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto gap-1">
-            <li class="nav-item">
-              <a class="nav-link" href="#about">About</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle text-white"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Quality Week
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
-                  <a class="dropdown-item" href="pages/QE24.html"
-                    >QE Week 2023</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="pages/QE24.html"
-                    >QE Week 2022</a
-                  >
-                </li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="pages/QE24.html"
-                    >QE Week 2024</a
-                  >
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contact">Contact</a>
-            </li>
-          </ul>
-        </div>
+    <div class="container-fluid">
+      <div class="d-flex align-items-center gap-1">
+        <img src="./cqcpnglogo.svg" alt="logo" height="40" />
+        <a class="navbar-brand" href="#">Colombo Quality Camp</a>
       </div>
-    </nav>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto gap-3">
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Quality Week
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li>
+                <a class="dropdown-item" href="pages/QE24.html">QE Week 2023</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="pages/QE24.html">QE Week 2022</a>
+              </li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li>
+                <a class="dropdown-item" href="pages/QE24.html">QE Week 2024</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
   <!------------------------------------------------------->
   <div class="bg-blob-1"></div>
@@ -83,14 +67,14 @@
   <!------------------------------------------------------->
 
   <section class="hero bg-image text-white text-center p-5">
-    <div class="container d-flex align-items-center justify-content-between mt-5">
-      <div class="d-flex flex-column">
+    <div class="hero-content d-flex align-items-center justify-content-between mt-2 w-100">
+      <div class="d-flex flex-column gap-2 text-content">
         <h1 class="text-left">Enhancing Yourself,<br> Your Process & Your <br>Product</h1>
         <p class="lead text-left">Empowering Quality, Driving Excellence.</p>
         <button class="header-btn">
           <div class="effects">
-              <div class="glow"></div>
-              <div class="border"></div>
+            <div class="glow"></div>
+            <div class="border"></div>
           </div>
           Contact
         </button>
@@ -153,8 +137,7 @@
           <!--card-->
           <div class="service-card">
             <div class='main w-100'>
-              <img class='cardImage'
-              src="./img/meeting.svg" alt="meetup" />
+              <img class='cardImage' src="./img/meeting.svg" alt="meetup" />
               <h5 class="mt-4">Meetups & Sessions</h5>
               <p class='description'>We organize community based meetups and sessions for the
                 quality enthusiasts.</p>
@@ -166,8 +149,7 @@
           <!--card-->
           <div class="service-card">
             <div class='main w-100'>
-              <img class='cardImage'
-              src="./img/consult.svg" alt="consultation" />
+              <img class='cardImage' src="./img/consult.svg" alt="consultation" />
               <h5 class="mt-4">Consultations</h5>
               <p class='description'>We conduct consultations on various quality engineering
                 aspects.</p>
@@ -179,8 +161,7 @@
           <!--card-->
           <div class="service-card">
             <div class='main w-100'>
-              <img class='cardImage'
-                src="./img/team.svg" alt="bootcamps" />
+              <img class='cardImage' src="./img/team.svg" alt="bootcamps" />
               <h5 class="mt-4">Bootcamps</h5>
               <p class='description'>We conduct various bootcamps to kick start your quality
                 engineering journey.</p>
@@ -272,5 +253,14 @@
 
   <!-- ./Footer -->
 </body>
+
+<script>
+document.addEventListener('mousemove', (e) => {
+    const circle = document.querySelector('.circle');
+    circle.style.left = `${e.clientX}px`; // Use clientX for viewport positioning
+    circle.style.top = `${e.clientY}px`;
+});
+
+</script>
 
 </html>
