@@ -1,35 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Welcome to the Colombo Quality Camps</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <!-- Navigation -->
 
-    <nav class="navbar navbar-expand-lg navbar-green fixed-top">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Welcome to the Colombo Quality Camps</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Navigation -->
+
+  <nav class="navbar navbar-expand-lg fixed-top mx-5 my-3">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Colombo Quality Camp</a>
+        <div class="d-flex align-items-center gap-1">
+          <img src="./cqcpnglogo.svg" alt="logo" height="40"/>
+          <a class="navbar-brand" href="#">Colombo Quality Camp</a>
+        </div>
         <button
           class="navbar-toggler"
           type="button"
@@ -42,7 +34,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
+          <ul class="navbar-nav ms-auto gap-1">
             <li class="nav-item">
               <a class="nav-link" href="#about">About</a>
             </li>
@@ -84,253 +76,201 @@
       </div>
     </nav>
 
-    <section
-      class="hero bg-image text-white text-center py-5"
-      style="
-        background-image: url('img/coverPage.jpg');
-        background-size: auto;
-        height: 70vh;
-      "
-    >
-      <div class="container">
-        <h1 class="display-4">Welcome to Our Event</h1>
-        <p class="lead">Join us for a day of learning and networking</p>
-        <!-- <a href="#register" class="btn btn-primary btn-lg">Register Now</a> -->
-      </div>
-    </section>
+  <!------------------------------------------------------->
+  <div class="bg-blob-1"></div>
 
-    <!--Main   -->
-    <section id="main" class="bg-light text-dark p-5">
-      <div class="container">
-        <div class="d-flex">
-          <div>
-            <h1>Become a Quality Expert</h1>
-            <p class="lead my-4">
-              We are bunch of enthusiasts looking to improve the quality of
-              software products and processes! We organize meetups, sessions and
-              do consultation to all your quality related activities.
-            </p>
+  <div class="bg-blob-2"></div>
+  <!------------------------------------------------------->
+
+  <section class="hero bg-image text-white text-center p-5">
+    <div class="container d-flex align-items-center justify-content-between mt-5">
+      <div class="d-flex flex-column">
+        <h1 class="text-left">Enhancing Yourself,<br> Your Process & Your <br>Product</h1>
+        <p class="lead text-left">Empowering Quality, Driving Excellence.</p>
+        <button class="header-btn">
+          <div class="effects">
+              <div class="glow"></div>
+              <div class="border"></div>
           </div>
-          <!--<img class="img-fluid w-50" src="img/coverPage.jpg" alt="">-->
-          <img class="img-fluid w-50" src="img/crowdImage.jpeg" alt="" />
+          Contact
+        </button>
+      </div>
+      <img class="header-img" src="./img/headerimage.svg" />
+    </div>
+  </section>
+
+  <!--Main   -->
+  <section id="main" class="p-5">
+    <div class="container">
+      <div class="d-flex">
+        <div>
+          <h4>Become a Quality Expert</h4>
+          <p class="my-4">
+            We are bunch of enthusiasts looking to improve the quality of
+            software products and processes! We organize meetups, sessions and
+            do consultation to all your quality related activities.
+          </p>
+        </div>
+        <!--<img class="img-fluid w-50" src="img/coverPage.jpg" alt="">-->
+        <img class="img-fluid w-50" src="img/crowdImage.jpeg" alt="" />
+      </div>
+    </div>
+  </section>
+
+  <!--About us sections-->
+  <section id="whatwedo" class="p-5">
+    <div class="container">
+      <div class="row align-items-center justify-content-between">
+        <div class="col-md">
+          <img src="img/testImage.jpg" class="img-fluid" alt="" />
+        </div>
+        <div class="col-md p-5">
+          <h4>About us</h4>
+          <p>
+            Established in 2017 with few individiuals who wanted to improve
+            the awarness of the qualit engineering community in Sri Lanka.
+          </p>
+          <p>
+            We started with introducing the hands on traning sessions for the
+            Quality community by Code camps.
+          </p>
+          <p>
+            Throughout the years we organized many events which helped to
+            improve the technicak knowledge in Sri Lanka.
+          </p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!--About us sections-->
-    <section id="whatwedo" class="p-5">
-      <div class="container">
-        <div class="row align-items-center justify-content-between bg-light">
-          <div class="col-md">
-            <img src="img/testImage.jpg" class="img-fluid" alt="" />
-          </div>
-          <div class="col-md p-5">
-            <h2>About us</h2>
-            <p class="lead">
-              Established in 2017 with few individiuals who wanted to improve
-              the awarness of the qualit engineering community in Sri Lanka.
-            </p>
-            <p class="lead">
-              We started with introducing the hands on traning sessions for the
-              Quality community by Code camps.
-            </p>
-            <p class="lead">
-              Throughout the years we organized many events which helped to
-              improve the technicak knowledge in Sri Lanka.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <!--Boxes-->
 
-    <!--Boxes-->
-
-    <section class="p-5" id="whatwedo">
-      <div class="container">
-        <h2 class="text-center mb-4">What We do</h2>
-        <div class="row text-center">
-          <div class="col-md">
-            <div class="card bg-success-subtle text-dark">
-              <div class="card-body text-center">
-                <div class="h1 mb-3">
-                  <i class="bi bi-calendar-check-fill"></i>
-                </div>
-                <h3 class="card-title mb-3">Meetups & Sessions</h3>
-                <p class="card-text">
-                  We organize community based meetups and sessions for the
-                  quality enthusiasts.
-                </p>
-                <!--<a href="#" class="btn btn-primary">Read more </a>-->
-              </div>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="card bg-success-subtle text-dark">
-              <div class="card-body text-center">
-                <div class="h1 mb-3">
-                  <i class="bi bi-calendar-check-fill"></i>
-                </div>
-                <h3 class="card-title mb-3">Consultations</h3>
-                <p class="card-text">
-                  We conduct consultations on various quality engineering
-                  aspects.
-                </p>
-                <!--<a href="#" class="btn btn-primary">Read more </a>-->
-              </div>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="card bg-success-subtle text-dark">
-              <div class="card-body text-center">
-                <div class="h1 mb-3">
-                  <i class="bi bi-calendar-check-fill"></i>
-                </div>
-                <h3 class="card-title mb-3">Bootcamps</h3>
-                <p class="card-text">
-                  We conduct various bootcamps to kick start your quality
-                  engineering journey.
-                </p>
-                <!--<a href="#" class="btn btn-primary">Read more </a>-->
-              </div>
+  <section class="p-5" id="whatwedo">
+    <div class="container">
+      <h4 class="text-center mb-1">What we do</h4>
+      <div class="row text-center">
+        <div class="col-md">
+          <!--card-->
+          <div class="service-card">
+            <div class='main w-100'>
+              <img class='cardImage'
+              src="./img/meeting.svg" alt="meetup" />
+              <h5 class="mt-4">Meetups & Sessions</h5>
+              <p class='description'>We organize community based meetups and sessions for the
+                quality enthusiasts.</p>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Adding cards -->
-    <!-- <div class="container py-5">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card">
-          <img src="testImage.jpg" class="card-img-top" alt="Speaker">
-          <div class="card-body">
-            <h5 class="card-title">Speaker Name</h5>
-            <p class="card-text">Brief bio of the speaker.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img src="testImage.jpg" class="card-img-top" alt="Speaker">
-          <div class="card-body">
-            <h5 class="card-title">Speaker Name</h5>
-            <p class="card-text">Brief bio of the speaker.</p>
-          </div>
-        </div>
-      </div> -->
-    <!-- Add more cards as needed -->
-    <!-- </div>
-  </div> -->
-
-    <!---->
-
-    <!--FAQ-->
-    <section id="faq" class="p-5">
-      <div class="container">
-        <h2 class="text-center mb-4">Frequently Asked Questions</h2>
-        <div class="accordion" id="accordionPanelsStayOpenExample">
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button
-                class="accordion-button"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#panelsStayOpen-collapseOne"
-                aria-expanded="true"
-                aria-controls="panelsStayOpen-collapseOne"
-              >
-                What is CQC?
-              </button>
-            </h2>
-            <div
-              id="panelsStayOpen-collapseOne"
-              class="accordion-collapse collapse show"
-            >
-              <div class="accordion-body">
-                CQC stands for <strong>Colombo Quality Camps.</strong> We are
-                bunch of people got together to improve the quality awarness of
-                the Sri Lankan quality assurance community. We organize events,
-                meetups and sessions. We also do consultations for all your
-                quality assurance needs.
-              </div>
+        <div class="col-md">
+          <!--card-->
+          <div class="service-card">
+            <div class='main w-100'>
+              <img class='cardImage'
+              src="./img/consult.svg" alt="consultation" />
+              <h5 class="mt-4">Consultations</h5>
+              <p class='description'>We conduct consultations on various quality engineering
+                aspects.</p>
             </div>
           </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#panelsStayOpen-collapseTwo"
-                aria-expanded="false"
-                aria-controls="panelsStayOpen-collapseTwo"
-              >
-                What is the purpose of CQC?
-              </button>
-            </h2>
-            <div
-              id="panelsStayOpen-collapseTwo"
-              class="accordion-collapse collapse"
-            >
-              <div class="accordion-body">
-                Well, First of all we wanted to do something for the QA
-                community. We identified that there are is a space for workshop
-                in Quality Engineering area. So we started our journey in 2017
-                with our first quality camp which gained a huge success. From
-                thta point onward we organize various sessions, meetups. Quality
-                Week is our signature event which happened in every year.
-              </div>
+        </div>
+
+        <div class="col-md">
+          <!--card-->
+          <div class="service-card">
+            <div class='main w-100'>
+              <img class='cardImage'
+                src="./img/team.svg" alt="bootcamps" />
+              <h5 class="mt-4">Bootcamps</h5>
+              <p class='description'>We conduct various bootcamps to kick start your quality
+                engineering journey.</p>
             </div>
           </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#panelsStayOpen-collapseThree"
-                aria-expanded="false"
-                aria-controls="panelsStayOpen-collapseThree"
-              >
-                Tell us more about Quality Week
-              </button>
-            </h2>
-            <div
-              id="panelsStayOpen-collapseThree"
-              class="accordion-collapse collapse"
-            >
-              <div class="accordion-body">
-                Quality is week is our signature event. We organize it yearly
-                basis to improve the knowledge of quality assurance community in
-                Sri Lanka. We invite speakers from Sri Lanka and outside to
-                speak in this glamorous event.
-              </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!--FAQ-->
+  <section id="faq" class="p-5">
+    <div class="container">
+      <h4 class="text-center mb-4">Frequently Asked Questions</h4>
+      <div class="accordion" id="accordionPanelsStayOpenExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+              aria-controls="panelsStayOpen-collapseOne">
+              What is CQC?
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+            <div class="accordion-body">
+              CQC stands for <strong>Colombo Quality Camps.</strong> We are
+              bunch of people got together to improve the quality awarness of
+              the Sri Lankan quality assurance community. We organize events,
+              meetups and sessions. We also do consultations for all your
+              quality assurance needs.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+              aria-controls="panelsStayOpen-collapseTwo">
+              What is the purpose of CQC?
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+            <div class="accordion-body">
+              Well, First of all we wanted to do something for the QA
+              community. We identified that there are is a space for workshop
+              in Quality Engineering area. So we started our journey in 2017
+              with our first quality camp which gained a huge success. From
+              thta point onward we organize various sessions, meetups. Quality
+              Week is our signature event which happened in every year.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+              aria-controls="panelsStayOpen-collapseThree">
+              Tell us more about Quality Week
+            </button>
+          </h2>
+          <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+            <div class="accordion-body">
+              Quality is week is our signature event. We organize it yearly
+              basis to improve the knowledge of quality assurance community in
+              Sri Lanka. We invite speakers from Sri Lanka and outside to
+              speak in this glamorous event.
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-      crossorigin="anonymous"
-    ></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
 
-    <footer class="footer bg-dark text-white py-4">
-      <div class="container text-center">
-        <p>&copy; 2024 Colombo Quality Camp. All Rights Reserved.</p>
-        <div class="social-icons">
-          <a href="#" class="text-white me-3"
-            ><i class="fab fa-facebook-f"></i
-          ></a>
-          <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
-        </div>
+  <footer class="footer bg-dark text-white py-4">
+    <div class="container text-center">
+      <p>&copy; 2024 Colombo Quality Camp. All Rights Reserved.</p>
+      <div class="social-icons">
+        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
       </div>
-    </footer>
+    </div>
+  </footer>
 
-    <!-- ./Footer -->
-  </body>
+  <!-- ./Footer -->
+</body>
+
 </html>
