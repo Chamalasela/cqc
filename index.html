@@ -20,40 +20,49 @@
   <nav class="navbar navbar-expand-lg fixed-top mx-5 my-3">
     <div class="container-fluid">
       <div class="d-flex align-items-center gap-1">
-        <img src="./cqcpnglogo.svg" alt="logo" height="40" />
-        <a class="navbar-brand" href="#">Colombo Quality Camp</a>
+        <img src="cqcpnglogo.svg" alt="logo" height="40" />
+        <a class="navbar-brand" href="/home">Colombo Quality Camp</a>
       </div>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto gap-3">
+        <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
+            <a class="nav-link text-white" href="index.html">About</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
+            <a
+              class="nav-link dropdown-toggle text-white"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
               Quality Week
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li>
-                <a class="dropdown-item" href="pages/QE24.html">QE Week 2023</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="pages/QE24.html">QE Week 2022</a>
-              </li>
+              <li><a class="dropdown-item" href="pages/QE24.html">QE Week 2022</a></li>
+              <li><a class="dropdown-item" href="pages/QE24.html">QE Week 2022</a></li>
               <li>
                 <hr class="dropdown-divider" />
               </li>
-              <li>
-                <a class="dropdown-item" href="pages/QE24.html">QE Week 2024</a>
-              </li>
+              <li><a class="dropdown-item" href="pages/QE24.html">QE Week 2022</a></li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
+            <a class="nav-link text-white" href="contact.html">Contact</a>
           </li>
         </ul>
       </div>
@@ -71,7 +80,7 @@
       <div class="d-flex flex-column gap-2 text-content">
         <h1 class="text-left">Enhancing Yourself,<br> Your Process & Your <br>Product</h1>
         <p class="lead text-left">Empowering Quality, Driving Excellence.</p>
-        <button class="header-btn">
+        <button class="header-btn ms-md-1">
           <div class="effects">
             <div class="glow"></div>
             <div class="border"></div>
@@ -79,15 +88,15 @@
           Contact
         </button>
       </div>
-      <img class="header-img" src="./img/headerimage.svg" />
+      <img class="header-img" src="./img/headerimage.svg"alt="header image" />
     </div>
   </section>
 
   <!--Main   -->
   <section id="main" class="p-5">
-    <div class="container">
+    <div class="section-body">
       <div class="d-flex">
-        <div>
+        <div class="col-md p-5 content-container intro-content-container">
           <h4>Become a Quality Expert</h4>
           <p class="my-4">
             We are bunch of enthusiasts looking to improve the quality of
@@ -95,20 +104,17 @@
             do consultation to all your quality related activities.
           </p>
         </div>
-        <!--<img class="img-fluid w-50" src="img/coverPage.jpg" alt="">-->
-        <img class="img-fluid w-50" src="img/crowdImage.jpeg" alt="" />
+        <img class="img-fluid w-50 section-img" src="img/crowdImage.jpeg" alt="crowd image" />
       </div>
     </div>
   </section>
 
   <!--About us sections-->
   <section id="whatwedo" class="p-5">
-    <div class="container">
-      <div class="row align-items-center justify-content-between">
-        <div class="col-md">
-          <img src="img/testImage.jpg" class="img-fluid" alt="" />
-        </div>
-        <div class="col-md p-5">
+    <div class="section-body">
+      <div class="row align-items-center justify-content-between ms-2 me-2">
+        <img src="img/testImage.jpg" class="img-fluid section-img p-0" alt="about image" />
+        <div class="col-md p-5 about-content-container">
           <h4>About us</h4>
           <p>
             Established in 2017 with few individiuals who wanted to improve
@@ -130,7 +136,7 @@
   <!--Boxes-->
 
   <section class="p-5" id="whatwedo">
-    <div class="container">
+    <div class="section-body">
       <h4 class="text-center mb-1">What we do</h4>
       <div class="row text-center">
         <div class="col-md">
@@ -175,7 +181,7 @@
 
   <!--FAQ-->
   <section id="faq" class="p-5">
-    <div class="container">
+    <div>
       <h4 class="text-center mb-4">Frequently Asked Questions</h4>
       <div class="accordion" id="accordionPanelsStayOpenExample">
         <div class="accordion-item">

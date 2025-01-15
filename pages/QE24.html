@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,16 +9,27 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="../style.css" />
 </head>
+
 <body>
   <!-- Navigation Bar -->
   <nav class="navbar navbar-expand-lg fixed-top mx-5 my-3">
     <div class="container-fluid">
       <div class="d-flex align-items-center gap-1">
-        <img src="../cqcpnglogo.svg" alt="logo" height="40"/>
+        <img src="../cqcpnglogo.svg" alt="logo" height="40" />
         <a class="navbar-brand" href="/home">Colombo Quality Camp</a>
       </div>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
@@ -25,13 +37,22 @@
             <a class="nav-link text-white" href="index.html">About</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a
+              class="nav-link dropdown-toggle text-white"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
               Quality Week
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="pages/QE24.html">QE Week 2022</a></li>
               <li><a class="dropdown-item" href="pages/QE24.html">QE Week 2022</a></li>
-              <li><hr class="dropdown-divider"></li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
               <li><a class="dropdown-item" href="pages/QE24.html">QE Week 2022</a></li>
             </ul>
           </li>
@@ -42,93 +63,125 @@
       </div>
     </div>
   </nav>
-
-  <!-- Event Details and Speaker Information -->
   
 
-  <div class="container py-5">
-    <div class="row">
+  <!-- Event Details and Speaker Information -->
+
+  <div class="speaker-section">
+    <div class="row justify-content-center gap-5">
+
+      <!--speaker card-->
       <div class="col-md-4">
         <div class="card">
-          <img src="/img/testImage.jpg" class="card-img-top" alt="Speaker">
+          <img src="../img/portrait.jpg" class="card-img-top" alt="Speaker">
           <div class="card-body">
-            <h5 class="card-title">Tharindra Jayamaha</h5>
+            <!-- <h5 class="card-title">Tharindra Jayamaha</h5> -->
+            <div class="card-body-text">
+              <span class="slanted">Tharindra</span>
+              <span class="slanted">Jayamaha</span>
+            </div>
             <!-- <p class="card-text">Brief bio of the speaker.</p> -->
           </div>
         </div>
       </div>
+
+      <!--speaker card-->
       <div class="col-md-4">
         <div class="card">
-          <img src="/img/testImage.jpg" class="card-img-top" alt="Speaker">
+          <img src="../img/portrait.jpg" class="card-img-top" alt="Speaker">
           <div class="card-body">
-            <h5 class="card-title">Chamal Perera</h5>
+            <!-- <h5 class="card-title">Tharindra Jayamaha</h5> -->
+            <div class="card-body-text">
+              <span class="slanted">Chamal</span>
+              <span class="slanted">Perera</span>
+            </div>
             <!-- <p class="card-text">Brief bio of the speaker.</p> -->
           </div>
         </div>
+        <!-- Add more cards as needed -->
       </div>
-      <!-- Add more cards as needed -->
     </div>
   </div>
 
 
-  <section class="container my-5">
-    <div class="row">
-      <div class="col-md-4">
-        <h4>Section Title</h4>
-        <p>Small or medium chunks of text can be divided into grid cells. This makes it easier to digest and creates a modern, clean layout.</p>
-      </div>
-      <div class="col-md-4">
-        <h4>Another Title</h4>
-        <p>Use a balanced grid layout to present text in an organized way, keeping it from overwhelming the user.</p>
-      </div>
-      <div class="col-md-4">
-        <h4>Yet Another Title</h4>
-        <p>Modern websites often use grid-based layouts to present text and images in a structured, appealing way.</p>
-      </div>
-    </div>
-  </section>
-  
-
-
-  <section class="container text-center my-5">
-    <h2 class="mb-4">Event Stats</h2>
-    <div class="row">
-      <div class="col-md-4">
-        <i class="fas fa-users fa-3x text-primary"></i>
-        <h3>500+</h3>
-        <p>Attendees</p>
-      </div>
-      <div class="col-md-4">
-        <i class="fas fa-microphone fa-3x text-primary"></i>
-        <h3>20</h3>
-        <p>Speakers</p>
-      </div>
-      <div class="col-md-4">
-        <i class="fas fa-calendar-alt fa-3x text-primary"></i>
-        <h3>10</h3>
-        <p>Sessions</p>
-      </div>
-      
-    </div>
-  </section>
-  
-
-
-
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-   
-    <footer class="footer bg-dark text-white py-4">
-        <div class="container text-center">
-          <p>&copy; 2024 Colombo Quality Camp. All Rights Reserved.</p>
-          <div class="social-icons">
-            <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+  <section class="mx-4 my-5">
+    <div class="schedule">
+      <div class="session">
+        <h4>John Smith</h4>
+        <div class="details">
+          <div class="description">
+            <h3>Introduction Creative Design</h3>
+            <p>In this session we will discuss about digital topics in detail. You need laptops and other tech support
+              equipment. This session will last for 2 hours. So prepare yourself.</p>
           </div>
         </div>
-      </footer>
-      
-	<!-- ./Footer --> 
+      </div>
+      <div class="session">
+        <h4>John Smith</h4>
+        <div class="details">
+          <div class="description">
+            <h3>Introduction Creative Design</h3>
+            <p>In this session we will discuss about digital topics in detail. You need laptops and other tech support
+              equipment. This session will last for 2 hours. So prepare yourself.</p>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="container stat-container text-center my-5">
+    <h4 class="text-center mb-4">Event Stats</h4>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="stat-card">
+          <div class='w-100'>
+            <i class="fas fa-users fa-3x"></i>
+            <h3 class="mt-4">500+</h3>
+            <p class='description'>Attendees</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stat-card">
+          <div class='w-100'>
+            <i class="fas fa-microphone fa-3x"></i>
+            <h3 class="mt-4">20</h3>
+            <p class='description'>Speakers</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stat-card">
+          <div class='w-100'>
+            <i class="fas fa-calendar-alt fa-3x"></i>
+            <h3 class="mt-4">10</h3>
+            <p class='description'>Sessions</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+
+  <footer class="footer bg-dark text-white py-4">
+    <div class="container text-center">
+      <p>&copy; 2024 Colombo Quality Camp. All Rights Reserved.</p>
+      <div class="social-icons">
+        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ./Footer -->
 </body>
+
 </html>
