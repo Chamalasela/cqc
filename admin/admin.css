@@ -97,7 +97,7 @@
 .admin-label {
   font-size: 0.8rem;
   font-weight: 500;
-  color: var(--admin-muted);
+  color: #a0a3b8;
   margin-bottom: 4px;
 }
 
@@ -279,4 +279,38 @@ textarea.admin-input {
   .admin-login-card {
     margin: 16px;
   }
+}
+
+/* ── Pages manager ────────────────────────────────────────── */
+
+.pages-manager-row {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--admin-border);
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.pages-manager-row:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(38, 198, 124, 0.25);
+}
+
+.pages-manager-active {
+  background: rgba(38, 198, 124, 0.08);
+  border: 1px solid rgba(38, 198, 124, 0.3);
+}
+
+.pages-manager-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--admin-text);
+}
+
+.pages-manager-badge {
+  background: rgba(38, 198, 124, 0.15);
+  color: var(--admin-green);
+  border: 1px solid rgba(38, 198, 124, 0.3);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 8px;
 }

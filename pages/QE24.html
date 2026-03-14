@@ -50,8 +50,8 @@
             >
               Quality Week
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="QE24.html">QE Week 2022</a></li>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="qualityWeekDropdown">
+              <!-- Populated dynamically from pages registry -->
             </ul>
           </li>
           <li class="nav-item">
@@ -199,7 +199,44 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
-    const CONTENT_KEY = 'cqc_event_data';
+    // ── Pages registry (shared with admin) ───────────────────────────────────
+    const PAGES_REGISTRY_KEY = 'cqc_pages_list';
+    const DEFAULT_CONTENT_KEY = 'cqc_event_data';
+
+    function loadPagesRegistry() {
+      try {
+        const stored = localStorage.getItem(PAGES_REGISTRY_KEY);
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        }
+      } catch (_) {}
+      return [{ slug: 'qe2022', title: 'QE Week 2022', contentKey: DEFAULT_CONTENT_KEY }];
+    }
+
+    // ── Determine current event content key from URL param ───────────────────
+    function getEventContentKey() {
+      const params = new URLSearchParams(window.location.search);
+      const slug   = params.get('event');
+      if (!slug) return DEFAULT_CONTENT_KEY;
+      const registry = loadPagesRegistry();
+      const page = registry.find(p => p.slug === slug);
+      return page ? page.contentKey : DEFAULT_CONTENT_KEY;
+    }
+
+    // ── Dynamic nav ──────────────────────────────────────────────────────────
+    function populateQualityWeekNav() {
+      const container = document.getElementById('qualityWeekDropdown');
+      if (!container) return;
+      const registry = loadPagesRegistry();
+      if (!registry.length) return;
+      container.innerHTML = registry.map(page => {
+        const url = `QE24.html?event=${encodeURIComponent(page.slug)}`;
+        return `<li><a class="dropdown-item" href="${escHtml(url)}">${escHtml(page.title)}</a></li>`;
+      }).join('');
+    }
+
+    const CONTENT_KEY = getEventContentKey();
 
     function loadPageContent() {
       try {
@@ -386,6 +423,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
+      populateQualityWeekNav();
       var content = loadPageContent();
       renderHero(content);
       renderAbout(content);

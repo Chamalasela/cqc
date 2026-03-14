@@ -150,13 +150,8 @@
             >
               Quality Week
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="pages/QE24.html">QE Week 2022</a></li>
-              <li><a class="dropdown-item" href="pages/QE24.html">QE Week 2022</a></li>
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-              <li><a class="dropdown-item" href="pages/QE24.html">QE Week 2022</a></li>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="qualityWeekDropdown">
+              <!-- Populated dynamically from pages registry -->
             </ul>
           </li>
           <li class="nav-item">
@@ -252,9 +247,26 @@
 <script>
 document.addEventListener('mousemove', (e) => {
     const circle = document.querySelector('.circle');
+    if (!circle) return;
     circle.style.left = `${e.clientX}px`;
     circle.style.top = `${e.clientY}px`;
 });
+
+// ── Quality Week nav dropdown (dynamic from pages registry) ──────────────────
+(function populateQualityWeekNav() {
+  const container = document.getElementById('qualityWeekDropdown');
+  if (!container) return;
+  try {
+    const stored = localStorage.getItem('cqc_pages_list');
+    const registry = (stored ? JSON.parse(stored) : null) ||
+      [{ slug: 'qe2022', title: 'QE Week 2022', contentKey: 'cqc_event_data' }];
+    container.innerHTML = registry.map(page => {
+      const slug  = String(page.slug).replace(/[^a-z0-9_\-]/gi, '');
+      const title = String(page.title).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+      return `<li><a class="dropdown-item" href="pages/QE24.html?event=${encodeURIComponent(slug)}">${title}</a></li>`;
+    }).join('');
+  } catch (_) {}
+})();
 </script>
 
 </html>

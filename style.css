@@ -16,12 +16,31 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
+.dropdown-menu {
+  background: rgba(17, 18, 28, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 6px;
+}
+
+.dropdown-item {
+  color: #e2e4f0;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  padding: 8px 14px;
+  transition: background 0.2s, color 0.2s;
+}
+
 .dropdown-item:hover {
-  background-color: #26c67b49;
+  background-color: rgba(38, 198, 123, 0.15);
+  color: #26C67C;
 }
 
 .dropdown-item:active {
   background-color: #26c67b;
+  color: #fff;
 }
 
 /*--------------- collapse menu for mobile -------------------*/
@@ -136,6 +155,7 @@ section {
 .navbar-brand {
   font-size: 16px;
   font-weight: 700;
+  color: #fff;
 
   @media (max-width: 992px) {
     display: none;
