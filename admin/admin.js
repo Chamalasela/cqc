@@ -169,8 +169,8 @@ function savePagesRegistry(pages) {
 function slugify(text) {
   return text
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '')
-    .replace(/^-+|-+$/g, '') || ('page' + Date.now());
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '') || ('page-' + Date.now());
 }
 
 // ── Dashboard helpers ─────────────────────────────────────────────────────────
@@ -461,8 +461,9 @@ function handleSave(event) {
   }
   savePagesRegistry(registry);
 
-  // Refresh the pages manager list
+  // Refresh the pages manager list and editing indicator
   populatePagesManager();
+  updateEditingIndicator();
 
   // Update preview link
   const previewLink = document.getElementById('previewPageLink');
