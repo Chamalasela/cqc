@@ -77,18 +77,51 @@
 
   <section class="hero bg-image text-white text-center p-5">
     <div class="hero-content d-flex align-items-center justify-content-between mt-2 w-100">
-      <div class="d-flex flex-column gap-2 text-content">
-        <h1 class="text-left">Enhancing Yourself,<br> Your Process & Your <br>Product</h1>
-        <p class="lead text-left">Empowering Quality, Driving Excellence.</p>
-        <button class="header-btn ms-md-1">
-          <div class="effects">
-            <div class="glow"></div>
-            <div class="border"></div>
-          </div>
-          Contact
-        </button>
+      <div class="d-flex flex-column gap-3 text-content">
+        <span class="hero-badge">Quality Engineering Community</span>
+        <h1 class="text-left">Enhancing Yourself,<br> Your Process &amp;<br>Your Product</h1>
+        <p class="lead text-left">Empowering Quality, Driving Excellence in Sri Lanka's tech community.</p>
+        <div class="d-flex gap-3 hero-cta flex-wrap">
+          <button class="header-btn ms-md-1">
+            <div class="effects">
+              <div class="glow"></div>
+              <div class="border"></div>
+            </div>
+            Join Us
+          </button>
+          <a href="#main" class="btn-secondary-outline">Explore More <i class="bi bi-arrow-down"></i></a>
+        </div>
       </div>
-      <img class="header-img" src="./img/headerimage.svg"alt="header image" />
+      <img class="header-img" src="./img/headerimage.svg" alt="header image" />
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat-item">
+        <div class="hero-stat-number-row">
+          <span class="stat-number" data-target="500">0</span><span class="stat-plus">+</span>
+        </div>
+        <span class="stat-label">Community Members</span>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat-item">
+        <div class="hero-stat-number-row">
+          <span class="stat-number" data-target="7">0</span><span class="stat-plus">+</span>
+        </div>
+        <span class="stat-label">Years Active</span>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat-item">
+        <div class="hero-stat-number-row">
+          <span class="stat-number" data-target="50">0</span><span class="stat-plus">+</span>
+        </div>
+        <span class="stat-label">Events Organized</span>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat-item">
+        <div class="hero-stat-number-row">
+          <span class="stat-number" data-target="20">0</span><span class="stat-plus">+</span>
+        </div>
+        <span class="stat-label">Sessions &amp; Bootcamps</span>
+      </div>
     </div>
   </section>
 
@@ -110,23 +143,23 @@
   </section>
 
   <!--About us sections-->
-  <section id="whatwedo" class="p-5">
+  <section id="aboutus" class="p-5">
     <div class="section-body">
       <div class="row align-items-center justify-content-between ms-2 me-2">
         <img src="img/testImage.jpg" class="img-fluid section-img p-0" alt="about image" />
-        <div class="col-md p-5 about-content-container">
+        <div class="col-md p-5 about-content-container reveal">
           <h4>About us</h4>
           <p>
-            Established in 2017 with few individiuals who wanted to improve
-            the awarness of the qualit engineering community in Sri Lanka.
+            Established in 2017 with a few individuals who wanted to improve
+            the awareness of the quality engineering community in Sri Lanka.
           </p>
           <p>
-            We started with introducing the hands on traning sessions for the
-            Quality community by Code camps.
+            We started by introducing hands-on training sessions for the
+            quality community through Code Camps.
           </p>
           <p>
-            Throughout the years we organized many events which helped to
-            improve the technicak knowledge in Sri Lanka.
+            Throughout the years we have organized many events which helped to
+            improve the technical knowledge of the QA community in Sri Lanka.
           </p>
         </div>
       </div>
@@ -139,19 +172,19 @@
     <div class="section-body">
       <h4 class="text-center mb-1">What we do</h4>
       <div class="row text-center">
-        <div class="col-md">
+        <div class="col-md reveal">
           <!--card-->
           <div class="service-card">
             <div class='main w-100'>
               <img class='cardImage' src="./img/meeting.svg" alt="meetup" />
-              <h5 class="mt-4">Meetups & Sessions</h5>
+              <h5 class="mt-4">Meetups &amp; Sessions</h5>
               <p class='description'>We organize community based meetups and sessions for the
                 quality enthusiasts.</p>
             </div>
           </div>
         </div>
 
-        <div class="col-md">
+        <div class="col-md reveal" style="transition-delay: 0.1s;">
           <!--card-->
           <div class="service-card">
             <div class='main w-100'>
@@ -163,7 +196,7 @@
           </div>
         </div>
 
-        <div class="col-md">
+        <div class="col-md reveal" style="transition-delay: 0.2s;">
           <!--card-->
           <div class="service-card">
             <div class='main w-100'>
@@ -179,65 +212,166 @@
     </div>
   </section>
 
-  <!--FAQ-->
+  <!-- Community CTA Section -->
+  <section class="p-5" id="community">
+    <div class="section-body">
+      <div class="community-cta reveal">
+        <div class="community-cta-content">
+          <span class="section-badge">Community</span>
+          <h3 class="mt-3">Be Part of Something<br>Meaningful</h3>
+          <p>Join hundreds of quality engineering enthusiasts in Sri Lanka. Attend our events,
+            learn from industry experts, and grow your career in QA.</p>
+          <div class="d-flex gap-3 flex-wrap">
+            <a href="contact.html" class="faq-contact-btn">Join the Community</a>
+            <a href="#whatwedo" class="btn-secondary-outline">Our Programs <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="community-cta-graphic">
+          <img src="./img/team.svg" alt="community" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section - Redesigned -->
   <section id="faq" class="p-5">
-    <div>
-      <h4 class="text-center mb-4">Frequently Asked Questions</h4>
-      <div class="accordion" id="accordionPanelsStayOpenExample">
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-              data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-              aria-controls="panelsStayOpen-collapseOne">
-              What is CQC?
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
-            <div class="accordion-body">
-              CQC stands for <strong>Colombo Quality Camps.</strong> We are
-              bunch of people got together to improve the quality awarness of
-              the Sri Lankan quality assurance community. We organize events,
-              meetups and sessions. We also do consultations for all your
+    <div class="faq-container">
+      <div class="text-center mb-5 reveal">
+        <span class="section-badge">FAQ</span>
+        <h2 class="mt-3 mb-2 faq-heading">Got Questions?</h2>
+        <p class="faq-subtitle">Find answers to commonly asked questions about CQC and our activities.</p>
+      </div>
+
+      <!-- Search Box -->
+      <div class="faq-search-wrapper mb-4 reveal">
+        <div class="faq-search-box">
+          <i class="bi bi-search"></i>
+          <input type="text" id="faqSearch" placeholder="Search questions..." autocomplete="off" />
+        </div>
+      </div>
+
+      <!-- FAQ Items -->
+      <div class="faq-list" id="faqList">
+
+        <div class="faq-item reveal" data-keywords="cqc colombo quality camps what">
+          <button class="faq-question-btn" type="button">
+            <div class="faq-q-left">
+              <span class="faq-icon-wrap"><i class="bi bi-building"></i></span>
+              <span class="faq-q-text">What is CQC?</span>
+            </div>
+            <span class="faq-chevron"><i class="bi bi-chevron-down"></i></span>
+          </button>
+          <div class="faq-answer-panel">
+            <div class="faq-answer-body">
+              <strong>CQC stands for Colombo Quality Camps.</strong> We are a group of enthusiasts
+              dedicated to improving quality awareness in the Sri Lankan quality assurance community.
+              We organize events, meetups, and sessions, and also provide consultations for all your
               quality assurance needs.
             </div>
           </div>
         </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-              data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
-              aria-controls="panelsStayOpen-collapseTwo">
-              What is the purpose of CQC?
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
-            <div class="accordion-body">
-              Well, First of all we wanted to do something for the QA
-              community. We identified that there are is a space for workshop
-              in Quality Engineering area. So we started our journey in 2017
-              with our first quality camp which gained a huge success. From
-              thta point onward we organize various sessions, meetups. Quality
-              Week is our signature event which happened in every year.
+
+        <div class="faq-item reveal" data-keywords="purpose mission why cqc goal">
+          <button class="faq-question-btn" type="button">
+            <div class="faq-q-left">
+              <span class="faq-icon-wrap"><i class="bi bi-bullseye"></i></span>
+              <span class="faq-q-text">What is the purpose of CQC?</span>
+            </div>
+            <span class="faq-chevron"><i class="bi bi-chevron-down"></i></span>
+          </button>
+          <div class="faq-answer-panel">
+            <div class="faq-answer-body">
+              We wanted to make a meaningful contribution to the QA community. We identified a gap
+              for workshops in the Quality Engineering space and started our journey in 2017 with our
+              first quality camp — which was a huge success. Since then, we have organized various
+              sessions, meetups, and our signature annual event, <strong>Quality Week</strong>.
             </div>
           </div>
         </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-              data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
-              aria-controls="panelsStayOpen-collapseThree">
-              Tell us more about Quality Week
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
-            <div class="accordion-body">
-              Quality is week is our signature event. We organize it yearly
-              basis to improve the knowledge of quality assurance community in
-              Sri Lanka. We invite speakers from Sri Lanka and outside to
-              speak in this glamorous event.
+
+        <div class="faq-item reveal" data-keywords="quality week annual event speakers sri lanka international">
+          <button class="faq-question-btn" type="button">
+            <div class="faq-q-left">
+              <span class="faq-icon-wrap"><i class="bi bi-calendar-event"></i></span>
+              <span class="faq-q-text">Tell us more about Quality Week</span>
+            </div>
+            <span class="faq-chevron"><i class="bi bi-chevron-down"></i></span>
+          </button>
+          <div class="faq-answer-panel">
+            <div class="faq-answer-body">
+              Quality Week is our signature annual event. We organize it each year to advance the
+              knowledge of the quality assurance community in Sri Lanka. We invite distinguished
+              speakers from Sri Lanka and internationally to present at this prestigious event.
             </div>
           </div>
         </div>
+
+        <div class="faq-item reveal" data-keywords="join membership community how participate">
+          <button class="faq-question-btn" type="button">
+            <div class="faq-q-left">
+              <span class="faq-icon-wrap"><i class="bi bi-person-plus"></i></span>
+              <span class="faq-q-text">How can I join the CQC community?</span>
+            </div>
+            <span class="faq-chevron"><i class="bi bi-chevron-down"></i></span>
+          </button>
+          <div class="faq-answer-panel">
+            <div class="faq-answer-body">
+              Joining the CQC community is easy! You can attend our public events and meetups,
+              follow us on social media, and reach out through our contact page to get more
+              involved. Our events are open to everyone passionate about quality engineering.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal" data-keywords="bootcamp training sessions workshop hands-on technical">
+          <button class="faq-question-btn" type="button">
+            <div class="faq-q-left">
+              <span class="faq-icon-wrap"><i class="bi bi-laptop"></i></span>
+              <span class="faq-q-text">What kind of bootcamps and sessions do you run?</span>
+            </div>
+            <span class="faq-chevron"><i class="bi bi-chevron-down"></i></span>
+          </button>
+          <div class="faq-answer-panel">
+            <div class="faq-answer-body">
+              We run hands-on bootcamps and technical sessions covering topics like test automation,
+              software quality methodologies, performance testing, and more. Our sessions are designed
+              for QA professionals at all levels — from beginners to experienced practitioners.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal" data-keywords="consultation service company team corporate">
+          <button class="faq-question-btn" type="button">
+            <div class="faq-q-left">
+              <span class="faq-icon-wrap"><i class="bi bi-chat-dots"></i></span>
+              <span class="faq-q-text">Do you offer consultations for companies?</span>
+            </div>
+            <span class="faq-chevron"><i class="bi bi-chevron-down"></i></span>
+          </button>
+          <div class="faq-answer-panel">
+            <div class="faq-answer-body">
+              Yes! We offer quality engineering consultations for teams and companies of all sizes.
+              Our experienced practitioners can help you improve your testing processes, implement
+              quality best practices, and level up your QA team's capabilities.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- No results message -->
+      <div class="faq-no-results d-none" id="faqNoResults">
+        <i class="bi bi-search"></i>
+        <p>No questions found matching your search.</p>
+      </div>
+
+      <!-- FAQ CTA -->
+      <div class="faq-cta-box text-center mt-5 reveal">
+        <p>Still have questions?</p>
+        <h5>We're here to help!</h5>
+        <a href="contact.html" class="faq-contact-btn">
+          <i class="bi bi-envelope me-2"></i>Contact Us
+        </a>
       </div>
     </div>
   </section>
@@ -246,27 +380,155 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
 
-  <footer class="footer bg-dark text-white py-4">
-    <div class="container text-center">
-      <p>&copy; 2024 Colombo Quality Camp. All Rights Reserved.</p>
-      <div class="social-icons">
-        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+  <footer class="footer text-white py-5 mt-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <img src="cqcpnglogo.svg" alt="logo" height="36" />
+            <span class="fw-bold fs-5">Colombo Quality Camp</span>
+          </div>
+          <p class="text-muted small">Empowering the quality engineering community in Sri Lanka
+            through events, bootcamps, and consultations since 2017.</p>
+          <div class="social-icons mt-3 d-flex gap-3">
+            <a href="#" class="text-white social-icon-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white social-icon-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white social-icon-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-white social-icon-link"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h6 class="fw-semibold mb-3 text-white">Quick Links</h6>
+          <ul class="list-unstyled footer-links">
+            <li><a href="index.html">About</a></li>
+            <li><a href="pages/QE24.html">Quality Week</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h6 class="fw-semibold mb-3 text-white">What We Do</h6>
+          <ul class="list-unstyled footer-links">
+            <li><a href="#whatwedo">Meetups &amp; Sessions</a></li>
+            <li><a href="#whatwedo">Consultations</a></li>
+            <li><a href="#whatwedo">Bootcamps</a></li>
+            <li><a href="pages/QE24.html">Quality Week</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="footer-divider my-4">
+      <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <p class="mb-0 text-muted small">&copy; 2024 Colombo Quality Camp. All Rights Reserved.</p>
+        <p class="mb-0 text-muted small">Made with ❤️ for the QA community</p>
       </div>
     </div>
   </footer>
 
   <!-- ./Footer -->
-</body>
 
-<script>
+  <script>
+// Cursor tracking
 document.addEventListener('mousemove', (e) => {
-    const circle = document.querySelector('.circle');
-    circle.style.left = `${e.clientX}px`; // Use clientX for viewport positioning
-    circle.style.top = `${e.clientY}px`;
+  const circle = document.querySelector('.circle');
+  if (!circle) return;
+  circle.style.left = `${e.clientX}px`;
+  circle.style.top = `${e.clientY}px`;
 });
 
-</script>
+// Counter Animation
+function animateCounter(el, target) {
+  let current = 0;
+  const increment = target / 50;
+  const timer = setInterval(() => {
+    current += increment;
+    if (current >= target) {
+      current = target;
+      clearInterval(timer);
+    }
+    el.textContent = Math.floor(current);
+  }, 30);
+}
+
+function initCounters() {
+  const counters = document.querySelectorAll('.stat-number');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const target = parseInt(entry.target.getAttribute('data-target'));
+        animateCounter(entry.target, target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(counter => observer.observe(counter));
+}
+
+// Scroll Reveal
+function initScrollReveal() {
+  const elements = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  elements.forEach(el => observer.observe(el));
+}
+
+// FAQ Toggle
+function initFaq() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const btn = item.querySelector('.faq-question-btn');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      faqItems.forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+}
+
+// FAQ Search
+function initFaqSearch() {
+  const searchInput = document.getElementById('faqSearch');
+  if (!searchInput) return;
+  const faqItems = document.querySelectorAll('.faq-item');
+  const noResults = document.getElementById('faqNoResults');
+
+  searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    faqItems.forEach(item => {
+      const questionSpan = item.querySelector('.faq-q-text');
+      const questionText = questionSpan ? questionSpan.textContent.toLowerCase() : '';
+      const keywords = (item.getAttribute('data-keywords') || '').toLowerCase();
+      const answerText = item.querySelector('.faq-answer-body')
+        ? item.querySelector('.faq-answer-body').textContent.toLowerCase()
+        : '';
+
+      const matches = !query ||
+        questionText.includes(query) ||
+        keywords.includes(query) ||
+        answerText.includes(query);
+
+      item.style.display = matches ? '' : 'none';
+      if (matches) visibleCount++;
+    });
+
+    if (noResults) noResults.classList.toggle('d-none', visibleCount > 0);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initCounters();
+  initScrollReveal();
+  initFaq();
+  initFaqSearch();
+});
+  </script>
+</body>
 
 </html>
