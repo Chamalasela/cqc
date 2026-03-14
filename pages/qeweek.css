@@ -364,3 +364,147 @@
     font-size: 2rem;
   }
 }
+
+/* =============================================
+   LIGHT THEME OVERRIDES – QE Week Page
+   ============================================= */
+
+.light-theme .qew-hero {
+  background: linear-gradient(135deg, #eef2fb 0%, #e4f0ea 50%, #eef2fb 100%);
+}
+
+.light-theme .qew-hero::before {
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% 30%, rgba(38, 198, 124, 0.10) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 80% at 80% 80%, rgba(74, 111, 171, 0.08) 0%, transparent 70%);
+}
+
+.light-theme .qew-hero-overlay {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.light-theme .qew-hero-title {
+  background: linear-gradient(140deg, #0f1117 0%, #4b5068 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.light-theme .qew-hero-subtitle {
+  color: #4b5068;
+}
+
+.light-theme .qew-meta-item {
+  color: #4b5068;
+}
+
+.light-theme .qew-meta-divider {
+  color: rgba(0, 0, 0, 0.20);
+}
+
+/* ── Section titles ───────────────────────── */
+
+.light-theme .qew-section-title {
+  color: #0f1117;
+}
+
+.light-theme .qew-section-text {
+  color: #4b5068;
+}
+
+/* ── About image ──────────────────────────── */
+
+.light-theme .qew-about-img {
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+}
+
+/* ── Stats ────────────────────────────────── */
+
+.light-theme .qew-stats-section {
+  background: linear-gradient(135deg, rgba(38, 198, 124, 0.05) 0%, rgba(74, 111, 171, 0.05) 100%);
+  border-top-color:    rgba(0, 0, 0, 0.07);
+  border-bottom-color: rgba(0, 0, 0, 0.07);
+}
+
+.light-theme .qew-stat-card {
+  background: rgba(255, 255, 255, 0.80);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.light-theme .qew-stat-card:hover {
+  border-color: rgba(38, 198, 124, 0.30);
+  background: #ffffff;
+}
+
+.light-theme .qew-stat-value {
+  color: #0f1117;
+}
+
+.light-theme .qew-stat-label {
+  color: #4b5068;
+}
+
+/* ── Speakers ─────────────────────────────── */
+
+.light-theme .qew-speaker-card {
+  background: rgba(255, 255, 255, 0.80);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.light-theme .qew-speaker-card:hover {
+  border-color: rgba(38, 198, 124, 0.30);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.light-theme .qew-speaker-img-wrap::after {
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.10), transparent);
+}
+
+.light-theme .qew-speaker-name {
+  color: #0f1117;
+}
+
+.light-theme .qew-speaker-bio {
+  color: #4b5068;
+}
+
+/* ── Agenda ───────────────────────────────── */
+
+.light-theme .qew-agenda-section {
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.light-theme .qew-session-card {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.light-theme .qew-session-card:hover {
+  border-color: rgba(38, 198, 124, 0.25);
+  background: #ffffff;
+}
+
+.light-theme .qew-session-title {
+  color: #0f1117;
+}
+
+.light-theme .qew-session-desc {
+  color: #4b5068;
+}
+
+/* ── Video ────────────────────────────────── */
+
+.light-theme .qew-video-wrap {
+  border-color: rgba(0, 0, 0, 0.10);
+}
+
+/* ── Gallery ──────────────────────────────── */
+
+.light-theme .qew-gallery-item {
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.light-theme .qew-gallery-item:hover {
+  border-color: rgba(38, 198, 124, 0.40);
+}

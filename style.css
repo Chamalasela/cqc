@@ -1364,3 +1364,341 @@ body:hover .circle {
   color: #26C67C !important;
   transform: translateY(-2px);
 }
+
+/* =============================================
+   THEME TOGGLE BUTTON
+   ============================================= */
+
+.theme-toggle-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.82);
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.25s, border-color 0.25s, color 0.25s;
+  flex-shrink: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #fff;
+}
+
+/* =============================================
+   LIGHT THEME OVERRIDES
+   ============================================= */
+
+/* ── Base ─────────────────────────────────── */
+
+.light-theme body {
+  background: #f4f6fb;
+}
+
+/* ── Background decoration blobs ─────────── */
+
+.light-theme .bg-blob-1 {
+  background-image: radial-gradient(circle, rgba(100, 130, 220, 0.12), rgba(100, 130, 220, 0) 65%);
+}
+
+.light-theme .bg-blob-2 {
+  background-image: radial-gradient(circle, rgba(38, 198, 124, 0.10), rgba(38, 198, 124, 0) 70%);
+}
+
+/* ── Cursor glow ──────────────────────────── */
+
+.light-theme .circle {
+  background-image: radial-gradient(circle, rgba(38, 198, 124, 0.12), rgba(38, 198, 124, 0) 60%);
+}
+
+/* ── Navigation ───────────────────────────── */
+
+.light-theme .navbar {
+  background: linear-gradient(109deg, rgba(255, 255, 255, 0.88) 0%, rgba(220, 232, 255, 0.92) 100%);
+  border: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+.light-theme .navbar .navbar-brand,
+.light-theme .navbar .nav-link,
+.light-theme .navbar .nav-link.text-white {
+  color: #0f1117 !important;
+  text-shadow: none;
+}
+
+.light-theme .nav-link:hover {
+  color: #26C67C !important;
+  border-bottom-color: #26C67C;
+}
+
+.light-theme .dropdown-menu {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+.light-theme .dropdown-item {
+  color: #0f1117;
+}
+
+.light-theme .dropdown-item:hover {
+  background-color: rgba(38, 198, 124, 0.12);
+  color: #26C67C;
+}
+
+.light-theme .dropdown-item:active {
+  background-color: #26C67C;
+  color: #fff;
+}
+
+.light-theme .navbar-toggler span {
+  background: #333;
+}
+
+.light-theme .navbar-toggler:hover span,
+.light-theme .navbar-toggler:focus span {
+  background: #0f1117;
+}
+
+@media (max-width: 991px) {
+  .light-theme .collapse .dropdown-menu {
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+  .light-theme .collapse .dropdown-item {
+    color: #0f1117;
+  }
+}
+
+/* ── Theme toggle button (light mode) ────── */
+
+.light-theme .theme-toggle-btn {
+  border-color: rgba(0, 0, 0, 0.18);
+  color: #4b5068;
+}
+
+.light-theme .theme-toggle-btn:hover {
+  background: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.28);
+  color: #0f1117;
+}
+
+/* ── Section base text ────────────────────── */
+
+.light-theme section {
+  color: #4b5068;
+}
+
+/* ── Hero ─────────────────────────────────── */
+
+.light-theme .hero h1 {
+  background: linear-gradient(139deg, #0f1117 0%, #4b5068 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.light-theme .hero p {
+  color: #4b5068;
+}
+
+.light-theme h4 {
+  color: #0f1117;
+}
+
+.light-theme .hero-stat-item .stat-number {
+  color: #0f1117;
+}
+
+.light-theme .hero-stat-item .stat-label {
+  color: #4b5068;
+}
+
+.light-theme .hero-stat-divider {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.light-theme .hero-stats {
+  border-top-color: rgba(0, 0, 0, 0.10);
+}
+
+/* ── Secondary outline button ─────────────── */
+
+.light-theme .btn-secondary-outline {
+  color: rgba(15, 17, 23, 0.72);
+  border-color: rgba(0, 0, 0, 0.20);
+}
+
+.light-theme .btn-secondary-outline:hover {
+  color: #0f1117;
+  border-color: rgba(0, 0, 0, 0.35);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* ── Service cards ────────────────────────── */
+
+.light-theme .service-card {
+  background: linear-gradient(0deg, #ffffff 0%, rgba(224, 242, 233, 0.70) 100%);
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.light-theme .service-card .main h5 {
+  color: #0f1117;
+}
+
+.light-theme .service-card .main .description {
+  color: #4b5068;
+}
+
+/* ── Stat cards ───────────────────────────── */
+
+.light-theme .stat-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(0, 0, 0, 0.10);
+}
+
+.light-theme .stat-card:hover {
+  border-color: rgba(0, 0, 0, 0.15);
+  background: #ffffff;
+  box-shadow: 0 7px 20px 5px rgba(0, 0, 0, 0.10);
+}
+
+.light-theme .stat-card h3 {
+  color: #0f1117;
+}
+
+/* ── Section headings / body text ─────────── */
+
+.light-theme .section-body h3,
+.light-theme .section-body h4 {
+  color: #0f1117;
+}
+
+.light-theme .section-body p {
+  color: #4b5068;
+}
+
+/* ── FAQ ──────────────────────────────────── */
+
+.light-theme #faq .accordion-button {
+  background: linear-gradient(109deg, rgba(193, 216, 255, 0.35) 0%, rgba(74, 111, 171, 0.12) 99%);
+  color: #0f1117;
+}
+
+.light-theme #faq .accordion-button:hover {
+  background: linear-gradient(109deg, rgba(193, 216, 255, 0.50) 0%, rgba(74, 111, 171, 0.18) 99%);
+}
+
+.light-theme .accordion-body {
+  color: #4b5068;
+}
+
+/* FAQ redesign */
+.light-theme .faq-heading {
+  color: #0f1117;
+}
+
+.light-theme .faq-subtitle {
+  color: #4b5068;
+}
+
+.light-theme .faq-search-box input {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #0f1117;
+}
+
+.light-theme .faq-search-box input:focus {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.light-theme .faq-search-box input::placeholder {
+  color: #9395a8;
+}
+
+.light-theme .faq-search-box i {
+  color: #6b6e85;
+}
+
+.light-theme .faq-item {
+  border-color: rgba(0, 0, 0, 0.08);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.90) 0%, rgba(238, 244, 255, 0.90) 100%);
+}
+
+.light-theme .faq-item:hover {
+  border-color: rgba(38, 198, 124, 0.28);
+}
+
+.light-theme .faq-item.open {
+  border-color: rgba(38, 198, 124, 0.42);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(232, 244, 255, 0.95) 100%);
+}
+
+.light-theme .faq-question-btn {
+  color: #0f1117;
+}
+
+.light-theme .faq-question-btn:hover,
+.light-theme .faq-item.open .faq-question-btn {
+  color: #26C67C;
+}
+
+.light-theme .faq-chevron {
+  color: #4b5068;
+}
+
+.light-theme .faq-answer-body {
+  color: #4b5068;
+}
+
+.light-theme .faq-no-results {
+  color: #4b5068;
+}
+
+.light-theme .faq-cta-box {
+  background: linear-gradient(135deg, rgba(38, 198, 124, 0.07) 0%, rgba(74, 111, 171, 0.06) 100%);
+  border-color: rgba(38, 198, 124, 0.22);
+}
+
+.light-theme .faq-cta-box p {
+  color: #4b5068;
+}
+
+.light-theme .faq-cta-box h5 {
+  color: #0f1117;
+}
+
+/* ── Community CTA ────────────────────────── */
+
+.light-theme .community-cta {
+  background: linear-gradient(135deg, rgba(38, 198, 124, 0.07) 0%, rgba(74, 111, 171, 0.06) 100%);
+  border-color: rgba(38, 198, 124, 0.18);
+}
+
+.light-theme .community-cta-content h3 {
+  color: #0f1117;
+}
+
+.light-theme .community-cta-content p {
+  color: #4b5068;
+}
+
+/* ── Footer ───────────────────────────────── */
+
+.light-theme .footer {
+  background: linear-gradient(180deg, rgba(230, 235, 248, 0.0) 0%, #1a1d2e 100%);
+  border-top-color: rgba(0, 0, 0, 0.10);
+}
+
+/* Keep footer text white since footer bg stays dark-ish */
+
+/* ── #footer (legacy styles) ──────────────── */
+
+.light-theme #footer h5 {
+  border-left-color: rgba(0, 0, 0, 0.25);
+}

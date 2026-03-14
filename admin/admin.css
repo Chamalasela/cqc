@@ -314,3 +314,142 @@ textarea.admin-input {
   font-weight: 600;
   padding: 2px 8px;
 }
+
+/* =============================================
+   THEME TOGGLE BUTTON (Admin)
+   ============================================= */
+
+.theme-toggle-btn {
+  background: transparent;
+  border: 1px solid var(--admin-border);
+  border-radius: 8px;
+  color: var(--admin-muted);
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.25s, border-color 0.25s, color 0.25s;
+  flex-shrink: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.theme-toggle-btn:hover {
+  background: var(--admin-green-dim);
+  border-color: rgba(38, 198, 124, 0.4);
+  color: var(--admin-green);
+}
+
+/* =============================================
+   LIGHT THEME – CSS VARIABLE OVERRIDES (Admin)
+   ============================================= */
+
+html.light-theme {
+  --admin-bg:        #f4f6fb;
+  --admin-surface:   #ffffff;
+  --admin-surface-2: #eef0f7;
+  --admin-border:    rgba(0, 0, 0, 0.10);
+  --admin-green:     #1ca867;
+  --admin-green-dim: rgba(28, 168, 103, 0.10);
+  --admin-text:      #0f1117;
+  --admin-muted:     #6b6e85;
+  --admin-danger:    #c0392b;
+}
+
+/* Harden a few colours that are hard-coded (not via variables) */
+
+.light-theme .admin-login-title,
+.light-theme .admin-page-title,
+.light-theme .admin-card-header,
+.light-theme .admin-topnav .fw-bold {
+  color: #0f1117;
+}
+
+.light-theme .admin-topnav .text-white {
+  color: #0f1117 !important;
+}
+
+.light-theme .admin-topnav a.text-decoration-none .text-white,
+.light-theme .admin-login-card a .text-white {
+  color: #0f1117 !important;
+}
+
+.light-theme .admin-label {
+  color: #4b5068;
+}
+
+.light-theme .admin-input::placeholder,
+.light-theme .form-control.admin-input::placeholder {
+  color: #9395a8;
+}
+
+.light-theme .admin-login-card {
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+}
+
+.light-theme .admin-topnav {
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.08);
+}
+
+.light-theme .pages-manager-row {
+  background: rgba(0, 0, 0, 0.02);
+  border-color: rgba(0, 0, 0, 0.10) !important;
+}
+
+.light-theme .pages-manager-row:hover {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(28, 168, 103, 0.25) !important;
+}
+
+.light-theme .stat-item,
+.light-theme .speaker-item,
+.light-theme .session-item,
+.light-theme .gallery-item {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.light-theme .alert-success {
+  background: rgba(28, 168, 103, 0.10);
+  border-color: rgba(28, 168, 103, 0.30);
+  color: #1a7a52;
+}
+
+.light-theme .alert-danger {
+  background: rgba(192, 57, 43, 0.10);
+  border-color: rgba(192, 57, 43, 0.30);
+  color: #a93226;
+}
+
+.light-theme .btn-close {
+  filter: none;
+  opacity: 0.6;
+}
+
+/* small text in dashboard */
+.light-theme .admin-body .text-white.small {
+  color: #4b5068 !important;
+}
+
+.light-theme .admin-body p.text-white.small,
+.light-theme .admin-body span.text-white.small {
+  color: #4b5068 !important;
+}
+
+.light-theme .admin-body strong {
+  color: #0f1117;
+}
+
+.light-theme .admin-body code.admin-code {
+  background: rgba(28, 168, 103, 0.10);
+  color: #1ca867;
+}
+
+.light-theme .text-muted {
+  color: #6b6e85 !important;
+}
+
+.light-theme p.text-muted.small {
+  color: #6b6e85 !important;
+}

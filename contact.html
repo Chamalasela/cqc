@@ -108,7 +108,58 @@
     .contact-submit-btn:active {
       outline: none;
     }
+
+    /* Light theme overrides for contact page */
+    .light-theme .contact-card {
+      background: linear-gradient(109deg, rgba(255, 255, 255, 0.88) 0%, rgba(220, 232, 255, 0.90) 100%);
+      border: 1px solid rgba(0, 0, 0, 0.10);
+    }
+
+    .light-theme .contact-card h2 {
+      background: linear-gradient(139deg, #0f1117 0%, #4b5068 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .light-theme .contact-card .subtitle {
+      color: #4b5068;
+    }
+
+    .light-theme .contact-card label {
+      color: #4b5068;
+    }
+
+    .light-theme .contact-card .form-control {
+      background: rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      color: #0f1117;
+    }
+
+    .light-theme .contact-card .form-control:focus {
+      background: rgba(0, 0, 0, 0.06);
+      border-color: #26C67C;
+      box-shadow: 0 0 0 3px rgba(38, 198, 124, 0.15);
+      color: #0f1117;
+    }
+
+    .light-theme .contact-card .form-control::placeholder {
+      color: #9395a8;
+    }
+
+    .light-theme .contact-submit-btn {
+      background: linear-gradient(109deg, rgba(38, 198, 124, 0.18) 0%, rgba(74, 111, 171, 0.14) 100%);
+      border-color: rgba(38, 198, 124, 0.35);
+      color: #0f1117;
+    }
+
+    .light-theme .contact-submit-btn:hover {
+      background: linear-gradient(109deg, rgba(38, 198, 124, 0.30) 0%, rgba(74, 111, 171, 0.22) 100%);
+      border-color: #26C67C;
+      color: #0f1117;
+    }
   </style>
+  <script src="theme.js"></script>
 </head>
 
 <body>
@@ -121,19 +172,24 @@
         <img src="cqcpnglogo.svg" alt="logo" height="40" />
         <a class="navbar-brand" href="index.html">Colombo Quality Camp</a>
       </div>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <div class="d-flex align-items-center gap-2">
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="Switch to light mode" title="Switch to light mode">
+          <i class="fas fa-sun"></i>
+        </button>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
