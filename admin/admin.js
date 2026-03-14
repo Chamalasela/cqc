@@ -250,24 +250,91 @@ function removeItem(containerId, index) {
 // ── Add new dynamic items ─────────────────────────────────────────────────────
 
 function addStat() {
-  const container  = document.getElementById('stats-container');
+  const container     = document.getElementById('stats-container');
   const existingCount = container.querySelectorAll('[data-index]').length;
-  const newIndex = Date.now(); // unique temp index
-  const html = buildStatsHTML([{ icon: '', value: '', label: '' }]).replace(/data-index="0"/g, `data-index="${newIndex}"`).replace(/\[0\]/g, `[${existingCount}]`);
+  const uid           = Date.now();
+  const html = `
+    <div class="border border-secondary rounded p-3 mb-3 stat-item" data-index="${uid}">
+      <div class="row g-2">
+        <div class="col-md-3">
+          <label class="form-label text-muted small">Icon class</label>
+          <input type="text" class="form-control admin-input" name="stats[${existingCount}][icon]" value="" placeholder="fas fa-users">
+        </div>
+        <div class="col-md-3">
+          <label class="form-label text-muted small">Value</label>
+          <input type="text" class="form-control admin-input" name="stats[${existingCount}][value]" value="" placeholder="500+">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label text-muted small">Label</label>
+          <input type="text" class="form-control admin-input" name="stats[${existingCount}][label]" value="" placeholder="Attendees">
+        </div>
+        <div class="col-md-2 d-flex align-items-end">
+          <button type="button" class="btn btn-sm btn-outline-danger w-100" onclick="removeItem('stats-container', ${uid})">Remove</button>
+        </div>
+      </div>
+    </div>`;
   container.insertAdjacentHTML('beforeend', html);
 }
 
 function addSpeaker() {
-  const container = document.getElementById('speakers-container');
+  const container     = document.getElementById('speakers-container');
   const existingCount = container.querySelectorAll('[data-index]').length;
-  const html = buildSpeakersHTML([{ name: '', role: '', bio: '', imageUrl: '' }]).replace(/data-index="0"/g, `data-index="${Date.now()}"`).replace(/\[0\]/g, `[${existingCount}]`);
+  const uid           = Date.now();
+  const html = `
+    <div class="border border-secondary rounded p-3 mb-3 speaker-item" data-index="${uid}">
+      <div class="row g-2">
+        <div class="col-md-3">
+          <label class="form-label text-muted small">Name</label>
+          <input type="text" class="form-control admin-input" name="speakers[${existingCount}][name]" value="" placeholder="Speaker Name">
+        </div>
+        <div class="col-md-3">
+          <label class="form-label text-muted small">Role / Title</label>
+          <input type="text" class="form-control admin-input" name="speakers[${existingCount}][role]" value="" placeholder="QA Engineer">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label text-muted small">Bio</label>
+          <input type="text" class="form-control admin-input" name="speakers[${existingCount}][bio]" value="" placeholder="Short bio">
+        </div>
+        <div class="col-md-2">
+          <label class="form-label text-muted small">Photo URL</label>
+          <input type="text" class="form-control admin-input" name="speakers[${existingCount}][imageUrl]" value="" placeholder="../img/portrait.jpg">
+        </div>
+        <div class="col-12 text-end">
+          <button type="button" class="btn btn-sm btn-outline-danger" onclick="removeItem('speakers-container', ${uid})">Remove Speaker</button>
+        </div>
+      </div>
+    </div>`;
   container.insertAdjacentHTML('beforeend', html);
 }
 
 function addSession() {
-  const container = document.getElementById('sessions-container');
+  const container     = document.getElementById('sessions-container');
   const existingCount = container.querySelectorAll('[data-index]').length;
-  const html = buildSessionsHTML([{ speaker: '', title: '', description: '', youtubeUrl: '' }]).replace(/data-index="0"/g, `data-index="${Date.now()}"`).replace(/\[0\]/g, `[${existingCount}]`);
+  const uid           = Date.now();
+  const html = `
+    <div class="border border-secondary rounded p-3 mb-3 session-item" data-index="${uid}">
+      <div class="row g-2">
+        <div class="col-md-4">
+          <label class="form-label text-muted small">Speaker</label>
+          <input type="text" class="form-control admin-input" name="sessions[${existingCount}][speaker]" value="" placeholder="Speaker Name">
+        </div>
+        <div class="col-md-8">
+          <label class="form-label text-muted small">Session Title</label>
+          <input type="text" class="form-control admin-input" name="sessions[${existingCount}][title]" value="" placeholder="Session Title">
+        </div>
+        <div class="col-md-8">
+          <label class="form-label text-muted small">Description</label>
+          <textarea class="form-control admin-input" name="sessions[${existingCount}][description]" rows="2" placeholder="Session description"></textarea>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label text-muted small">YouTube URL</label>
+          <input type="text" class="form-control admin-input" name="sessions[${existingCount}][youtubeUrl]" value="" placeholder="https://youtu.be/...">
+        </div>
+        <div class="col-12 text-end">
+          <button type="button" class="btn btn-sm btn-outline-danger" onclick="removeItem('sessions-container', ${uid})">Remove Session</button>
+        </div>
+      </div>
+    </div>`;
   container.insertAdjacentHTML('beforeend', html);
 }
 
@@ -342,6 +409,61 @@ function handleSave(event) {
   saveContent(data);
   showAlert('Changes saved successfully! The QE Week page has been updated.', 'success');
   window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── Change password handler ───────────────────────────────────────────────────
+
+async function handleChangePassword(event) {
+  event.preventDefault();
+
+  const currentPw  = document.getElementById('currentPassword');
+  const newPw      = document.getElementById('newPassword');
+  const confirmPw  = document.getElementById('confirmPassword');
+  const alertCont  = document.getElementById('pwAlertContainer');
+
+  const showPwAlert = (msg, type) => {
+    const el = document.createElement('div');
+    el.className = `alert alert-${type}`;
+    el.setAttribute('role', 'alert');
+    el.innerHTML = escHtml(msg) +
+      ' <button type="button" class="btn-close" aria-label="Close" onclick="this.parentElement.style.display=\'none\'"></button>';
+    alertCont.innerHTML = '';
+    alertCont.appendChild(el);
+    if (type === 'success') setTimeout(() => { el.style.display = 'none'; }, 4000);
+  };
+
+  if (!currentPw.value || !newPw.value || !confirmPw.value) {
+    showPwAlert('Please fill in all password fields.', 'danger');
+    return;
+  }
+
+  if (newPw.value.length < 8) {
+    showPwAlert('New password must be at least 8 characters long.', 'danger');
+    return;
+  }
+
+  if (newPw.value !== confirmPw.value) {
+    showPwAlert('New passwords do not match.', 'danger');
+    return;
+  }
+
+  const currentHash = await sha256(currentPw.value);
+  const storedHash  = localStorage.getItem(ADMIN_HASH_KEY) || DEFAULT_HASH;
+
+  if (currentHash !== storedHash) {
+    showPwAlert('Current password is incorrect.', 'danger');
+    currentPw.value = '';
+    return;
+  }
+
+  const newHash = await sha256(newPw.value);
+  localStorage.setItem(ADMIN_HASH_KEY, newHash);
+
+  currentPw.value = '';
+  newPw.value     = '';
+  confirmPw.value = '';
+
+  showPwAlert('Password updated successfully!', 'success');
 }
 
 // ── Alert helper ──────────────────────────────────────────────────────────────
