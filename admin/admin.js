@@ -2,12 +2,19 @@
  * CQC Admin Panel - Authentication & Content Management
  * 
  * Default login: cqcAdmin2024!
- * Content is stored in localStorage under "cqc_event_data"
+ * Content is stored in localStorage under "cqc_event_data" (default page)
+ * or "cqc_event_data_<slug>" for additional pages.
+ * The pages registry is stored under "cqc_pages_list".
  */
 
-const ADMIN_SESSION_KEY = 'cqc_admin_session';
-const ADMIN_HASH_KEY    = 'cqc_admin_hash';
-const CONTENT_KEY       = 'cqc_event_data';
+const ADMIN_SESSION_KEY  = 'cqc_admin_session';
+const ADMIN_HASH_KEY     = 'cqc_admin_hash';
+const CONTENT_KEY        = 'cqc_event_data';
+const PAGES_REGISTRY_KEY = 'cqc_pages_list';
+
+// Track the page currently being edited (slug + content key)
+window._currentEditSlug       = 'qe2022';
+window._currentEditContentKey = CONTENT_KEY;
 
 // Default password hash for "cqcAdmin2024!" (SHA-256)
 const DEFAULT_HASH = '02feafc6fb0b9004437ff5694400136fd017318ce2ecfdad8d5c95f5b7c331cb';
@@ -110,9 +117,10 @@ function getDefaultContent() {
 
 // ── Content storage ───────────────────────────────────────────────────────────
 
-function loadContent() {
+function loadContent(contentKey) {
+  const key = contentKey || CONTENT_KEY;
   try {
-    const stored = localStorage.getItem(CONTENT_KEY);
+    const stored = localStorage.getItem(key);
     if (stored) {
       const parsed = JSON.parse(stored);
       // Merge with defaults so new fields added later still have values
@@ -130,8 +138,39 @@ function loadContent() {
   return getDefaultContent();
 }
 
-function saveContent(data) {
-  localStorage.setItem(CONTENT_KEY, JSON.stringify(data));
+function saveContent(data, contentKey) {
+  const key = contentKey || CONTENT_KEY;
+  localStorage.setItem(key, JSON.stringify(data));
+}
+
+// ── Pages registry ────────────────────────────────────────────────────────────
+
+function getDefaultPagesRegistry() {
+  return [
+    { slug: 'qe2022', title: 'QE Week 2022', contentKey: CONTENT_KEY },
+  ];
+}
+
+function loadPagesRegistry() {
+  try {
+    const stored = localStorage.getItem(PAGES_REGISTRY_KEY);
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+    }
+  } catch (_) { /* ignore */ }
+  return getDefaultPagesRegistry();
+}
+
+function savePagesRegistry(pages) {
+  localStorage.setItem(PAGES_REGISTRY_KEY, JSON.stringify(pages));
+}
+
+function slugify(text) {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '') || ('page-' + Date.now());
 }
 
 // ── Dashboard helpers ─────────────────────────────────────────────────────────
@@ -141,15 +180,15 @@ function buildStatsHTML(stats) {
     <div class="border border-secondary rounded p-3 mb-3 stat-item" data-index="${i}">
       <div class="row g-2">
         <div class="col-md-3">
-          <label class="form-label text-muted small">Icon class</label>
+          <label class="form-label admin-label">Icon class</label>
           <input type="text" class="form-control admin-input" name="stats[${i}][icon]" value="${escHtml(s.icon)}" placeholder="fas fa-users">
         </div>
         <div class="col-md-3">
-          <label class="form-label text-muted small">Value</label>
+          <label class="form-label admin-label">Value</label>
           <input type="text" class="form-control admin-input" name="stats[${i}][value]" value="${escHtml(s.value)}" placeholder="500+">
         </div>
         <div class="col-md-4">
-          <label class="form-label text-muted small">Label</label>
+          <label class="form-label admin-label">Label</label>
           <input type="text" class="form-control admin-input" name="stats[${i}][label]" value="${escHtml(s.label)}" placeholder="Attendees">
         </div>
         <div class="col-md-2 d-flex align-items-end">
@@ -164,19 +203,19 @@ function buildSpeakersHTML(speakers) {
     <div class="border border-secondary rounded p-3 mb-3 speaker-item" data-index="${i}">
       <div class="row g-2">
         <div class="col-md-3">
-          <label class="form-label text-muted small">Name</label>
+          <label class="form-label admin-label">Name</label>
           <input type="text" class="form-control admin-input" name="speakers[${i}][name]" value="${escHtml(sp.name)}" placeholder="Speaker Name">
         </div>
         <div class="col-md-3">
-          <label class="form-label text-muted small">Role / Title</label>
+          <label class="form-label admin-label">Role / Title</label>
           <input type="text" class="form-control admin-input" name="speakers[${i}][role]" value="${escHtml(sp.role)}" placeholder="QA Engineer">
         </div>
         <div class="col-md-4">
-          <label class="form-label text-muted small">Bio</label>
+          <label class="form-label admin-label">Bio</label>
           <input type="text" class="form-control admin-input" name="speakers[${i}][bio]" value="${escHtml(sp.bio)}" placeholder="Short bio">
         </div>
         <div class="col-md-2">
-          <label class="form-label text-muted small">Photo URL</label>
+          <label class="form-label admin-label">Photo URL</label>
           <input type="text" class="form-control admin-input" name="speakers[${i}][imageUrl]" value="${escHtml(sp.imageUrl)}" placeholder="../img/portrait.jpg">
         </div>
         <div class="col-12 text-end">
@@ -191,19 +230,19 @@ function buildSessionsHTML(sessions) {
     <div class="border border-secondary rounded p-3 mb-3 session-item" data-index="${i}">
       <div class="row g-2">
         <div class="col-md-4">
-          <label class="form-label text-muted small">Speaker</label>
+          <label class="form-label admin-label">Speaker</label>
           <input type="text" class="form-control admin-input" name="sessions[${i}][speaker]" value="${escHtml(s.speaker)}" placeholder="Speaker Name">
         </div>
         <div class="col-md-8">
-          <label class="form-label text-muted small">Session Title</label>
+          <label class="form-label admin-label">Session Title</label>
           <input type="text" class="form-control admin-input" name="sessions[${i}][title]" value="${escHtml(s.title)}" placeholder="Session Title">
         </div>
         <div class="col-md-8">
-          <label class="form-label text-muted small">Description</label>
+          <label class="form-label admin-label">Description</label>
           <textarea class="form-control admin-input" name="sessions[${i}][description]" rows="2" placeholder="Session description">${escHtml(s.description)}</textarea>
         </div>
         <div class="col-md-4">
-          <label class="form-label text-muted small">YouTube URL</label>
+          <label class="form-label admin-label">YouTube URL</label>
           <input type="text" class="form-control admin-input" name="sessions[${i}][youtubeUrl]" value="${escHtml(s.youtubeUrl)}" placeholder="https://youtu.be/...">
         </div>
         <div class="col-12 text-end">
@@ -215,7 +254,7 @@ function buildSessionsHTML(sessions) {
 
 function buildGalleryHTML(gallery) {
   if (!gallery || gallery.length === 0) {
-    return '<p class="text-muted small">No photos added yet.</p>';
+    return '<p class="admin-label">No photos added yet.</p>';
   }
   return gallery.map((url, i) => `
     <div class="d-flex align-items-center gap-2 mb-2 gallery-item" data-index="${i}">
@@ -257,15 +296,15 @@ function addStat() {
     <div class="border border-secondary rounded p-3 mb-3 stat-item" data-index="${uid}">
       <div class="row g-2">
         <div class="col-md-3">
-          <label class="form-label text-muted small">Icon class</label>
+          <label class="form-label admin-label">Icon class</label>
           <input type="text" class="form-control admin-input" name="stats[${existingCount}][icon]" value="" placeholder="fas fa-users">
         </div>
         <div class="col-md-3">
-          <label class="form-label text-muted small">Value</label>
+          <label class="form-label admin-label">Value</label>
           <input type="text" class="form-control admin-input" name="stats[${existingCount}][value]" value="" placeholder="500+">
         </div>
         <div class="col-md-4">
-          <label class="form-label text-muted small">Label</label>
+          <label class="form-label admin-label">Label</label>
           <input type="text" class="form-control admin-input" name="stats[${existingCount}][label]" value="" placeholder="Attendees">
         </div>
         <div class="col-md-2 d-flex align-items-end">
@@ -284,19 +323,19 @@ function addSpeaker() {
     <div class="border border-secondary rounded p-3 mb-3 speaker-item" data-index="${uid}">
       <div class="row g-2">
         <div class="col-md-3">
-          <label class="form-label text-muted small">Name</label>
+          <label class="form-label admin-label">Name</label>
           <input type="text" class="form-control admin-input" name="speakers[${existingCount}][name]" value="" placeholder="Speaker Name">
         </div>
         <div class="col-md-3">
-          <label class="form-label text-muted small">Role / Title</label>
+          <label class="form-label admin-label">Role / Title</label>
           <input type="text" class="form-control admin-input" name="speakers[${existingCount}][role]" value="" placeholder="QA Engineer">
         </div>
         <div class="col-md-4">
-          <label class="form-label text-muted small">Bio</label>
+          <label class="form-label admin-label">Bio</label>
           <input type="text" class="form-control admin-input" name="speakers[${existingCount}][bio]" value="" placeholder="Short bio">
         </div>
         <div class="col-md-2">
-          <label class="form-label text-muted small">Photo URL</label>
+          <label class="form-label admin-label">Photo URL</label>
           <input type="text" class="form-control admin-input" name="speakers[${existingCount}][imageUrl]" value="" placeholder="../img/portrait.jpg">
         </div>
         <div class="col-12 text-end">
@@ -315,19 +354,19 @@ function addSession() {
     <div class="border border-secondary rounded p-3 mb-3 session-item" data-index="${uid}">
       <div class="row g-2">
         <div class="col-md-4">
-          <label class="form-label text-muted small">Speaker</label>
+          <label class="form-label admin-label">Speaker</label>
           <input type="text" class="form-control admin-input" name="sessions[${existingCount}][speaker]" value="" placeholder="Speaker Name">
         </div>
         <div class="col-md-8">
-          <label class="form-label text-muted small">Session Title</label>
+          <label class="form-label admin-label">Session Title</label>
           <input type="text" class="form-control admin-input" name="sessions[${existingCount}][title]" value="" placeholder="Session Title">
         </div>
         <div class="col-md-8">
-          <label class="form-label text-muted small">Description</label>
+          <label class="form-label admin-label">Description</label>
           <textarea class="form-control admin-input" name="sessions[${existingCount}][description]" rows="2" placeholder="Session description"></textarea>
         </div>
         <div class="col-md-4">
-          <label class="form-label text-muted small">YouTube URL</label>
+          <label class="form-label admin-label">YouTube URL</label>
           <input type="text" class="form-control admin-input" name="sessions[${existingCount}][youtubeUrl]" value="" placeholder="https://youtu.be/...">
         </div>
         <div class="col-12 text-end">
@@ -341,7 +380,7 @@ function addSession() {
 function addGalleryItem() {
   const container = document.getElementById('gallery-container');
   // remove the "no photos" placeholder if present
-  const placeholder = container.querySelector('p.text-muted');
+  const placeholder = container.querySelector('p.admin-label');
   if (placeholder) placeholder.remove();
 
   const existingCount = container.querySelectorAll('[data-index]').length;
@@ -406,7 +445,30 @@ function handleSave(event) {
     return;
   }
 
-  saveContent(data);
+  const slug       = window._currentEditSlug;
+  const contentKey = window._currentEditContentKey;
+
+  saveContent(data, contentKey);
+
+  // Register or update the page in the pages registry
+  const registry = loadPagesRegistry();
+  const existing = registry.findIndex(p => p.slug === slug);
+  const pageEntry = { slug, title: data.eventTitle, contentKey };
+  if (existing >= 0) {
+    registry[existing] = pageEntry;
+  } else {
+    registry.push(pageEntry);
+  }
+  savePagesRegistry(registry);
+
+  // Refresh the pages manager list and editing indicator
+  populatePagesManager();
+  updateEditingIndicator();
+
+  // Update preview link
+  const previewLink = document.getElementById('previewPageLink');
+  if (previewLink) previewLink.href = `../pages/QE24.html?event=${encodeURIComponent(slug)}`;
+
   showAlert('Changes saved successfully! The QE Week page has been updated.', 'success');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -488,7 +550,9 @@ function showAlert(message, type) {
 // ── Populate dashboard form ───────────────────────────────────────────────────
 
 function populateDashboard() {
-  const content = loadContent();
+  populatePagesManager();
+
+  const content = loadContent(window._currentEditContentKey);
 
   const setVal = (id, value) => {
     const el = document.getElementById(id);
@@ -511,4 +575,148 @@ function populateDashboard() {
   if (speakersContainer) speakersContainer.innerHTML = buildSpeakersHTML(content.speakers);
   if (sessionsContainer) sessionsContainer.innerHTML = buildSessionsHTML(content.sessions);
   if (galleryContainer)  galleryContainer.innerHTML  = buildGalleryHTML(content.gallery);
+
+  // Update editing indicator and preview link
+  updateEditingIndicator();
+}
+
+// ── Pages manager ─────────────────────────────────────────────────────────────
+
+function updateEditingIndicator() {
+  const indicator = document.getElementById('currentEditingLabel');
+  const previewLink = document.getElementById('previewPageLink');
+  const previewBtnLink = document.getElementById('previewPageBtnLink');
+  if (indicator) {
+    const registry = loadPagesRegistry();
+    const page = registry.find(p => p.slug === window._currentEditSlug);
+    indicator.textContent = page ? page.title : 'New Page (unsaved)';
+  }
+  const url = `../pages/QE24.html?event=${encodeURIComponent(window._currentEditSlug || 'qe2022')}`;
+  if (previewLink) previewLink.href = url;
+  if (previewBtnLink) previewBtnLink.href = url;
+}
+
+function buildPagesManagerHTML(pages) {
+  if (!pages || pages.length === 0) {
+    return '<p class="admin-label">No pages yet.</p>';
+  }
+  return pages.map(page => {
+    const isActive = page.slug === window._currentEditSlug;
+    return `
+      <div class="d-flex align-items-center justify-content-between p-2 mb-2 rounded ${isActive ? 'pages-manager-active' : 'pages-manager-row'}">
+        <div class="d-flex align-items-center gap-2">
+          <i class="fas fa-calendar-alt" style="color: var(--admin-green); font-size:0.85rem;"></i>
+          <span class="pages-manager-title">${escHtml(page.title)}</span>
+          ${isActive ? '<span class="badge pages-manager-badge ms-2">Editing</span>' : ''}
+        </div>
+        <div class="d-flex gap-2">
+          <a href="../pages/QE24.html?event=${encodeURIComponent(page.slug)}" target="_blank"
+             class="btn btn-sm admin-btn-outline py-1 px-2" title="View page">
+            <i class="fas fa-external-link-alt"></i>
+          </a>
+          ${!isActive ? `<button type="button" class="btn btn-sm admin-btn-outline py-1 px-2" onclick="editPage('${escHtml(page.slug)}')" title="Edit this page">
+            <i class="fas fa-pen"></i> Edit
+          </button>` : ''}
+          <button type="button" class="btn btn-sm admin-btn-danger py-1 px-2" onclick="confirmDeletePage('${escHtml(page.slug)}')" title="Delete page">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function populatePagesManager() {
+  const container = document.getElementById('pages-manager-list');
+  if (!container) return;
+  const registry = loadPagesRegistry();
+  container.innerHTML = buildPagesManagerHTML(registry);
+}
+
+function editPage(slug) {
+  const registry = loadPagesRegistry();
+  const page = registry.find(p => p.slug === slug);
+  if (!page) return;
+
+  window._currentEditSlug       = page.slug;
+  window._currentEditContentKey = page.contentKey;
+
+  populateDashboard();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  showAlert(`Now editing: ${page.title}`, 'success');
+}
+
+function createNewPage() {
+  const title = prompt('Enter the title for the new Quality Week page (e.g. QE Week 2026):');
+  if (!title || !title.trim()) return;
+
+  const trimmedTitle = title.trim();
+  const slug = slugify(trimmedTitle);
+
+  // Check for duplicate slugs
+  const registry = loadPagesRegistry();
+  if (registry.some(p => p.slug === slug)) {
+    showAlert(`A page with a similar name already exists. Please use a different title.`, 'danger');
+    return;
+  }
+
+  const contentKey = CONTENT_KEY + '_' + slug;
+  window._currentEditSlug       = slug;
+  window._currentEditContentKey = contentKey;
+
+  // Pre-fill form with the given title and empty defaults
+  const defaults = getDefaultContent();
+  defaults.eventTitle = trimmedTitle;
+
+  const setVal = (id, value) => { const el = document.getElementById(id); if (el) el.value = value || ''; };
+  setVal('eventTitle',       defaults.eventTitle);
+  setVal('eventSubtitle',    '');
+  setVal('eventDate',        '');
+  setVal('eventLocation',    '');
+  setVal('eventDescription', '');
+  setVal('heroImageUrl',     '');
+
+  const statsContainer    = document.getElementById('stats-container');
+  const speakersContainer = document.getElementById('speakers-container');
+  const sessionsContainer = document.getElementById('sessions-container');
+  const galleryContainer  = document.getElementById('gallery-container');
+  if (statsContainer)    statsContainer.innerHTML    = buildStatsHTML(defaults.stats);
+  if (speakersContainer) speakersContainer.innerHTML = buildSpeakersHTML([]);
+  if (sessionsContainer) sessionsContainer.innerHTML = buildSessionsHTML([]);
+  if (galleryContainer)  galleryContainer.innerHTML  = buildGalleryHTML([]);
+
+  updateEditingIndicator();
+  populatePagesManager();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  showAlert(`New page "${trimmedTitle}" ready. Fill in the details and click Save Changes.`, 'success');
+}
+
+function confirmDeletePage(slug) {
+  const registry = loadPagesRegistry();
+  const page = registry.find(p => p.slug === slug);
+  if (!page) return;
+
+  if (!confirm(`Are you sure you want to delete "${page.title}"? This cannot be undone.`)) return;
+
+  // Remove content from localStorage
+  localStorage.removeItem(page.contentKey);
+
+  // Remove from registry
+  const newRegistry = registry.filter(p => p.slug !== slug);
+  // Always keep at least one page; if registry becomes empty, add default back
+  if (newRegistry.length === 0) {
+    newRegistry.push(...getDefaultPagesRegistry());
+  }
+  savePagesRegistry(newRegistry);
+
+  // If we just deleted the page currently being edited, switch to first page
+  if (window._currentEditSlug === slug) {
+    const first = newRegistry[0];
+    window._currentEditSlug       = first.slug;
+    window._currentEditContentKey = first.contentKey;
+    populateDashboard();
+  } else {
+    populatePagesManager();
+  }
+
+  showAlert(`Page "${page.title}" has been deleted.`, 'success');
 }

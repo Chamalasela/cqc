@@ -150,13 +150,8 @@
             >
               Quality Week
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="pages/QE24.html">QE Week 2022</a></li>
-              <li><a class="dropdown-item" href="pages/QE24.html">QE Week 2022</a></li>
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-              <li><a class="dropdown-item" href="pages/QE24.html">QE Week 2022</a></li>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="qualityWeekDropdown">
+              <!-- Populated dynamically from pages registry -->
             </ul>
           </li>
           <li class="nav-item">
@@ -252,9 +247,12 @@
 <script>
 document.addEventListener('mousemove', (e) => {
     const circle = document.querySelector('.circle');
+    if (!circle) return;
     circle.style.left = `${e.clientX}px`;
     circle.style.top = `${e.clientY}px`;
 });
 </script>
+<script src="nav.js"></script>
+<script>populateQualityWeekNav('pages/');</script>
 
 </html>
